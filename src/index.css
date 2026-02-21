@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 背景图片 + 深色遮罩 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* 使用 Unsplash 的星空科技感图片 */
+  background-image:
+    /* 深色渐变遮罩 */
+    linear-gradient(135deg, rgba(15, 15, 26, 0.85) 0%, rgba(26, 26, 46, 0.8) 50%, rgba(22, 33, 62, 0.85) 100%),
+    /* 背景图片 */
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* 深色渐变背景 - 更丰富的色彩，更明显 */
+.gradient-bg {
+  background:
+    radial-gradient(ellipse 100% 60% at 50% -20%, rgba(139, 92, 246, 0.4), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 80% 40%, rgba(59, 130, 246, 0.3), transparent 50%),
+    radial-gradient(ellipse 70% 40% at 20% 80%, rgba(236, 72, 153, 0.25), transparent 50%),
+    linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 40%, #16213e 70%, #1a1a2e 100%);
+  background-attachment: fixed;
+}
+
+/* 背景网格效果 */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 光晕效果 - 增强模糊和扩散 */
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(30px, -30px); }
+  50% { transform: translate(-30px, 30px); }
+  75% { transform: translate(-15px, -15px); }
+}
+
+/* 噪点纹理 */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
